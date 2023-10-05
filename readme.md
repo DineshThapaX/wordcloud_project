@@ -22,8 +22,7 @@ I assume that you already have latest version of R and RStudio installed on your
 
 Please install "tm" package on your RStudio using Console. That is essential for our project. You can also download it manually from packages section.
 
-```{install.packages ("tm")}
-```
+`{install.packages ("tm")}`
 
 "tm" package in R is the Text Mining package. The "tm" package offers functionality for managing text documents, abstracts the process of document manipulation and eases the usage of heterogeneous text formats in R.
 
@@ -47,9 +46,7 @@ First of all, Load "tm" package in your source code.
 
 ```{library("tm")}
 
-```
-
-```{course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))}
+{course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))}
 
 ```
 
@@ -81,8 +78,7 @@ The tm_map () function is used to remove unnecessary white space, to convert the
 
 ```
 
-**a5. Generate TF-IDF matrix**
-Term Document/Inverse Document Frequency(TF-IDF) is a powerful text analysis technique to find similar documents based their vector representations.
+**a5. Generate TF-IDF matrix** Term Document/Inverse Document Frequency(TF-IDF) is a powerful text analysis technique to find similar documents based their vector representations.
 
 ```{course_dtm <- DocumentTermMatrix(course_corpus4)}
 
@@ -90,8 +86,7 @@ Term Document/Inverse Document Frequency(TF-IDF) is a powerful text analysis tec
 
 **a6. Inspect to TF-IDF**
 
-```{inspect(course_dtm)}
-
+``` {inspect(course_dtm)}
 ```
 
 In R, the inspect() function is used to print the internal representation of an R object or the result of an expression. The inspect() function is also used to track the executed code lines of a function or method.
@@ -107,41 +102,37 @@ df_frequency<- data.frame(word = names(word_frequency),freq=word_frequency)
 
 The head () function in R is used to display the first n rows or elements of a vector, matrix, table, data frame or function.
 
-```{head(df_frequency)}
-
+``` {head(df_frequency)}
 ```
 
 **b. Displaying the Word Cloud**
 
 **b1. First of all, Install "wordcloud" package. Then, copy the below code step by step.**
 
-```{library(wordcloud)}
-
+``` {library(wordcloud)}
 ```
 
 **b2. Simple wordcloud**
 
-```{wordcloud(df_frequency$word,df_frequency$freq)}
-
+``` {wordcloud(df_frequency$word,df_frequency$freq)}
 ```
 
 **b3. Displaying Top 10 words in wordcloud**
 
-```{wordcloud(df_frequency$word, df_frequency$freq, max.words=10, min.freq = 1)}
+\`\`\`{wordcloud(df_frequency$word, df_frequency$freq, max.words=10, min.freq = 1)}
 
-```
+```         
 
 **c. Enhancing the Word Cloud**
 
 **c1. Choose a specific font and order**
 
 ```{wordcloud(df_frequency$word, df_frequency$freq, max.words=10, min.freq = 1, random.order=FALSE,family = "Helvatica", font = 3)}
-
 ```
 
 **c2. Using a color palatte. First of all install "RColorBrewer" package.**
 
-```{library(RColorBrewer)}
+``` {library(rcolorbrewer)}
 
 word_pal <- brewer.pal(10,"Dark2")
 
