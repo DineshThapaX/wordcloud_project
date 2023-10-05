@@ -40,9 +40,15 @@ my.R is my source file. For your practice, please create your own source file na
 
 **a. Preparing data for word cloud**
 
-**a1. Create a corpos object using VCorpos class.**
+**a1. Create a corpos object using VCorpus class.**
 
 First of all, Load "tm" package in your source code.
+
+```{r}
+library("tm")
+```
+
+Creating a course_corpus object from Vcorpus class.
 
 ```{library("tm")}
 course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))
@@ -58,10 +64,6 @@ In the above code, VCorpus creates a object and stores the content of my texts d
 In your case, please provide your own directory source.
 
 **a2. Convert texts data to lower case**
-
-```{course_corpus2 = tm_map(course_corpus, content_transformer(tolower))}
-
-```
 
 The tm_map () function is used to remove unnecessary white space, to convert the text to lower case, to remove common stopwords like 'the', "we".
 
