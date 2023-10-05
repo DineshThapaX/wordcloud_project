@@ -1,7 +1,7 @@
 # a. Preparing data for word cloud
 library("tm")
 
-course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))
+course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/DataMiningProjects/wordcloud_project/text-analytics/courses"))
 
 course_corpus2 = tm_map(course_corpus, content_transformer(tolower))
 

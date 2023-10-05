@@ -51,7 +51,7 @@ library("tm")
 Creating a course_corpus object from Vcorpus class.
 
 ```{r}
-course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))
+course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/DataMiningProjects/wordcloud_project/text-analytics/courses"))
 
 ```
 
