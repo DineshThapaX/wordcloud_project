@@ -94,8 +94,7 @@ The tm_map () function is used to remove unnecessary white space, to convert the
 
 **a6. Inspect to TF-IDF**
 
-``` {inspect(course_dtm)}
-{r}
+```{r}
 inspect(course_dtm)
 ```
 
@@ -113,8 +112,7 @@ df_frequency<- data.frame(word = names(word_frequency),freq=word_frequency)
 
 The head () function in R is used to display the first n rows or elements of a vector, matrix, table, data frame or function.
 
-``` {head(df_frequency)}
-{r}
+```{r}
 head(df_frequency)
 ```
 
