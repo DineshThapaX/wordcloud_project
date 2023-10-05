@@ -22,7 +22,9 @@ I assume that you already have latest version of R and RStudio installed on your
 
 Please install "tm" package on your RStudio using Console. That is essential for our project. You can also download it manually from packages section.
 
-`{install.packages ("tm")}`
+```{r}
+install.packages ("tm")
+```
 
 "tm" package in R is the Text Mining package. The "tm" package offers functionality for managing text documents, abstracts the process of document manipulation and eases the usage of heterogeneous text formats in R.
 
@@ -74,21 +76,21 @@ The tm_map () function is used to remove unnecessary white space, to convert the
 **a3. Remove punctuations**
 
 ```{r}
-{course_corpus3 = tm_map(course_corpus2, removePunctuation)}
+course_corpus3 = tm_map(course_corpus2, removePunctuation)
 
 ```
 
 **a4. Remove stopwords**
 
 ```{r}
-{course_corpus4 = tm_map(course_corpus3, removeWords, stopwords())}
+course_corpus4 = tm_map(course_corpus3, removeWords, stopwords())
 
 ```
 
 **a5. Generate TF-IDF matrix** Term Document/Inverse Document Frequency(TF-IDF) is a powerful text analysis technique to find similar documents based their vector representations.
 
 ```{r}
-{course_dtm <- DocumentTermMatrix(course_corpus4)}
+course_dtm <- DocumentTermMatrix(course_corpus4)
 
 ```
 
@@ -103,7 +105,7 @@ In R, the inspect() function is used to print the internal representation of an 
 **a7. Generate a frequency data frame**
 
 ```{r}
-{word_frequency <- sort(colSums(as.matrix(course_dtm)),decreasing=TRUE)}
+word_frequency <- sort(colSums(as.matrix(course_dtm)),decreasing=TRUE)
 df_frequency<- data.frame(word = names(word_frequency),freq=word_frequency)
 
 ```
