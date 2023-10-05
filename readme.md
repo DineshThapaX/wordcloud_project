@@ -45,8 +45,7 @@ my.R is my source file. For your practice, please create your own source file na
 First of all, Load "tm" package in your source code.
 
 ```{library("tm")}
-
-{course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))}
+course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))
 
 ```
 
