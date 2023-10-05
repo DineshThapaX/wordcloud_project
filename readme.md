@@ -23,7 +23,6 @@ I assume that you already have latest version of R and RStudio installed on your
 Please install "tm" package on your RStudio using Console. That is essential for our project. You can also download it manually from packages section.
 
 ```{install.packages ("tm")}
-
 ```
 
 "tm" package in R is the Text Mining package. The "tm" package offers functionality for managing text documents, abstracts the process of document manipulation and eases the usage of heterogeneous text formats in R.
