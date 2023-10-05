@@ -32,7 +32,7 @@ my.R is my source file. For your practice, please create your own source file na
 
 **We will solve this problem in three major steps.**
 
-**a. Preparing data for word cloud**
+**a. Preparing data for word**
 
 **b. Displaying the Word Cloud**
 
@@ -50,7 +50,7 @@ library("tm")
 
 Creating a course_corpus object from Vcorpus class.
 
-```{library("tm")}
+```{r}
 course_corpus = VCorpus(DirSource("//students.uce.ac.uk/filespace/mb20/tic/S23206188/LinkedinLearning/wordcloud_project/text-analytics/courses"))
 
 ```
@@ -65,36 +65,46 @@ In your case, please provide your own directory source.
 
 **a2. Convert texts data to lower case**
 
+```{r}
+course_corpus2 = tm_map(course_corpus, content_transformer(tolower))
+```
+
 The tm_map () function is used to remove unnecessary white space, to convert the text to lower case, to remove common stopwords like 'the', "we".
 
 **a3. Remove punctuations**
 
-```{course_corpus3 = tm_map(course_corpus2, removePunctuation)}
+```{r}
+{course_corpus3 = tm_map(course_corpus2, removePunctuation)}
 
 ```
 
 **a4. Remove stopwords**
 
-```{course_corpus4 = tm_map(course_corpus3, removeWords, stopwords())}
+```{r}
+{course_corpus4 = tm_map(course_corpus3, removeWords, stopwords())}
 
 ```
 
 **a5. Generate TF-IDF matrix** Term Document/Inverse Document Frequency(TF-IDF) is a powerful text analysis technique to find similar documents based their vector representations.
 
-```{course_dtm <- DocumentTermMatrix(course_corpus4)}
+```{r}
+{course_dtm <- DocumentTermMatrix(course_corpus4)}
 
 ```
 
 **a6. Inspect to TF-IDF**
 
 ``` {inspect(course_dtm)}
+{r}
+inspect(course_dtm)
 ```
 
 In R, the inspect() function is used to print the internal representation of an R object or the result of an expression. The inspect() function is also used to track the executed code lines of a function or method.
 
 **a7. Generate a frequency data frame**
 
-```{word_frequency <- sort(colSums(as.matrix(course_dtm)),decreasing=TRUE)}
+```{r}
+{word_frequency <- sort(colSums(as.matrix(course_dtm)),decreasing=TRUE)}
 df_frequency<- data.frame(word = names(word_frequency),freq=word_frequency)
 
 ```
@@ -104,36 +114,43 @@ df_frequency<- data.frame(word = names(word_frequency),freq=word_frequency)
 The head () function in R is used to display the first n rows or elements of a vector, matrix, table, data frame or function.
 
 ``` {head(df_frequency)}
+{r}
+head(df_frequency)
 ```
 
 **b. Displaying the Word Cloud**
 
 **b1. First of all, Install "wordcloud" package. Then, copy the below code step by step.**
 
-``` {library(wordcloud)}
+```{r}
+library("wordcloud")
 ```
 
 **b2. Simple wordcloud**
 
-``` {wordcloud(df_frequency$word,df_frequency$freq)}
+```{r}
+wordcloud(df_frequency$word,df_frequency$freq)
 ```
 
 **b3. Displaying Top 10 words in wordcloud**
 
-\`\`\`{wordcloud(df_frequency$word, df_frequency$freq, max.words=10, min.freq = 1)}
-
-```         
+```{r}
+wordcloud(df_frequency$word, df_frequency$freq, max.words=10, min.freq = 1)
+```
 
 **c. Enhancing the Word Cloud**
 
 **c1. Choose a specific font and order**
 
-```{wordcloud(df_frequency$word, df_frequency$freq, max.words=10, min.freq = 1, random.order=FALSE,family = "Helvatica", font = 3)}
+```{r}
+wordcloud(df_frequency$word, df_frequency$freq, max.words=10, min.freq = 1,
+          random.order=FALSE,family = "Helvatica", font = 3)
 ```
 
 **c2. Using a color palatte. First of all install "RColorBrewer" package.**
 
-``` {library(rcolorbrewer)}
+```{r}
+library("RColorBrewer")
 
 word_pal <- brewer.pal(10,"Dark2")
 
